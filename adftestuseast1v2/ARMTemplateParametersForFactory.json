@@ -4,6 +4,12 @@
 	"parameters": {
 		"factoryName": {
 			"value": "adftestuseast1v2"
+		},
+		"LS_DEST_AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString": {
+			"value": ""
 		}
 	}
 }
