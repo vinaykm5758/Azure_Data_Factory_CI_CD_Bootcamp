@@ -5,11 +5,23 @@
 		"factoryName": {
 			"value": "adftestuseast1v2"
 		},
+		"LSAzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"LS_AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
 		"LS_DEST_AzureBlobStorage_connectionString": {
 			"value": ""
 		},
 		"LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString": {
 			"value": ""
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://adlsgen2storage22.dfs.core.windows.net/"
 		}
 	}
 }
