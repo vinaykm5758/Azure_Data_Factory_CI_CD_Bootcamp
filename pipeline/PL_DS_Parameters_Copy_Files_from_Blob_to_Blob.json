@@ -1,5 +1,5 @@
 {
-	"name": "PL_Param_Copy_Files_from_Blob_to_Blob",
+	"name": "PL_DS_Parameters_Copy_Files_from_Blob_to_Blob",
 	"properties": {
 		"activities": [
 			{
