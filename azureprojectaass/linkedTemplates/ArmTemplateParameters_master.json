@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "azureprojectaass"
+		},
+		"LSAzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"LS_AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"LS_AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"LS_DEST_AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"LS_OnPrem_SqlServer_connectionString": {
+			"value": "Integrated Security=True;Data Source=LAPTOP-5VARS294;Initial Catalog=AdventureWorksLT2016"
+		},
+		"LS_OnPrem_SqlServer_password": {
+			"value": ""
+		},
+		"LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://adlsgen2storage22.dfs.core.windows.net/"
+		},
+		"LS_AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azuredeststr.dfs.core.windows.net/"
+		},
+		"LS_OnPrem_SqlServer_properties_typeProperties_userName": {
+			"value": "vinay"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

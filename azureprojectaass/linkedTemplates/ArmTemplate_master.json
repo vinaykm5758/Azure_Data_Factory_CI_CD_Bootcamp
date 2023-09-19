@@ -1,0 +1,140 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "azureprojectaass"
+		},
+		"LSAzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LSAzureBlobStorage'"
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_GEN2_AzureDataLakeStorage'"
+		},
+		"LS_AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_AzureDataLakeStorage1'"
+		},
+		"LS_AzureSqlDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_AzureSqlDatabase'"
+		},
+		"LS_DEST_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_DEST_AzureBlobStorage'"
+		},
+		"LS_OnPrem_SqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_OnPrem_SqlServer'",
+			"defaultValue": "Integrated Security=True;Data Source=LAPTOP-5VARS294;Initial Catalog=AdventureWorksLT2016"
+		},
+		"LS_OnPrem_SqlServer_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_OnPrem_SqlServer'"
+		},
+		"LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Source_Azure_SQL_DB_adfmasterbootcamp'"
+		},
+		"LS_ADLS_GEN2_AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsgen2storage22.dfs.core.windows.net/"
+		},
+		"LS_AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://azuredeststr.dfs.core.windows.net/"
+		},
+		"LS_OnPrem_SqlServer_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "vinay"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "azureprojectaass_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LSAzureBlobStorage_connectionString": {
+						"value": "[parameters('LSAzureBlobStorage_connectionString')]"
+					},
+					"LS_ADLS_GEN2_AzureDataLakeStorage_accountKey": {
+						"value": "[parameters('LS_ADLS_GEN2_AzureDataLakeStorage_accountKey')]"
+					},
+					"LS_AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('LS_AzureDataLakeStorage1_accountKey')]"
+					},
+					"LS_AzureSqlDatabase_connectionString": {
+						"value": "[parameters('LS_AzureSqlDatabase_connectionString')]"
+					},
+					"LS_DEST_AzureBlobStorage_connectionString": {
+						"value": "[parameters('LS_DEST_AzureBlobStorage_connectionString')]"
+					},
+					"LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString": {
+						"value": "[parameters('LS_Source_Azure_SQL_DB_adfmasterbootcamp_connectionString')]"
+					},
+					"LS_OnPrem_SqlServer_connectionString": {
+						"value": "[parameters('LS_OnPrem_SqlServer_connectionString')]"
+					},
+					"LS_OnPrem_SqlServer_password": {
+						"value": "[parameters('LS_OnPrem_SqlServer_password')]"
+					},
+					"LS_ADLS_GEN2_AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_GEN2_AzureDataLakeStorage_properties_typeProperties_url')]"
+					},
+					"LS_AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('LS_AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"LS_OnPrem_SqlServer_properties_typeProperties_userName": {
+						"value": "[parameters('LS_OnPrem_SqlServer_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "azureprojectaass_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'azureprojectaass_ArmTemplate_0')]"
+			]
+		}
+	]
+}
